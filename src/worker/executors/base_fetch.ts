@@ -60,10 +60,11 @@ export class BaseFetch extends Base {
                     );
                 case QUERY_OPTION.Between:
                 case QUERY_OPTION.GreaterThan:
-                case QUERY_OPTION.LessThan:
                 case QUERY_OPTION.GreaterThanEqualTo:
-                case QUERY_OPTION.LessThanEqualTo:
                     return this.executeWhereLogic(firstColumn, value, key, "next");
+                case QUERY_OPTION.LessThan:
+                case QUERY_OPTION.LessThanEqualTo:
+                    return this.executeWhereLogic(firstColumn, value, key, "prev");
                 case QUERY_OPTION.Aggregate: break;
                 default:
                     return this.executeWhereLogic(firstColumn, value, null, "next");
